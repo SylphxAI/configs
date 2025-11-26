@@ -9,14 +9,8 @@
 		"./node": "./node.json",
 		"./react": "./react.json"
 	},
-	"files": [
-		"*.json"
-	],
-	"keywords": [
-		"tsconfig",
-		"typescript",
-		"config"
-	],
+	"files": ["*.json"],
+	"keywords": ["tsconfig", "typescript", "config"],
 	"author": "SylphxAI",
 	"license": "MIT",
 	"repository": {

@@ -6,15 +6,8 @@
 	"exports": {
 		".": "./biome.json"
 	},
-	"files": [
-		"biome.json"
-	],
-	"keywords": [
-		"biome",
-		"linter",
-		"formatter",
-		"config"
-	],
+	"files": ["biome.json"],
+	"keywords": ["biome", "linter", "formatter", "config"],
 	"author": "SylphxAI",
 	"license": "MIT",
 	"repository": {
