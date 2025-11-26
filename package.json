@@ -1,0 +1,17 @@
+{
+	"name": "@sylphx/configs",
+	"private": true,
+	"workspaces": ["packages/*"],
+	"scripts": {
+		"build": "turbo run build",
+		"lint": "biome check .",
+		"format": "biome format --write .",
+		"version-packages": "changeset version",
+		"release": "turbo run build && changeset publish"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@changesets/cli": "^2.29.7",
+		"turbo": "^2.5.4"
+	}
+}
