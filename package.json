@@ -1,13 +1,14 @@
 {
 	"name": "@sylphx/configs",
 	"private": true,
+	"packageManager": "bun@1.3.3",
 	"workspaces": ["packages/*"],
 	"scripts": {
-		"build": "turbo run build",
+		"build": "echo 'No build needed for config packages'",
 		"lint": "biome check .",
 		"format": "biome format --write .",
 		"version-packages": "changeset version",
-		"release": "turbo run build && changeset publish"
+		"release": "changeset publish"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
