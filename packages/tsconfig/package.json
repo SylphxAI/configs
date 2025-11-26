@@ -1,6 +1,6 @@
 {
 	"name": "@sylphx/tsconfig",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Shared TypeScript configuration for SylphxAI projects",
 	"type": "module",
 	"exports": {
@@ -9,8 +9,14 @@
 		"./node": "./node.json",
 		"./react": "./react.json"
 	},
-	"files": ["*.json"],
-	"keywords": ["tsconfig", "typescript", "config"],
+	"files": [
+		"*.json"
+	],
+	"keywords": [
+		"tsconfig",
+		"typescript",
+		"config"
+	],
 	"author": "SylphxAI",
 	"license": "MIT",
 	"repository": {

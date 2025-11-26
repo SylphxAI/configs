@@ -1,13 +1,20 @@
 {
 	"name": "@sylphx/biome-config",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Shared Biome configuration for SylphxAI projects",
 	"type": "module",
 	"exports": {
 		".": "./biome.json"
 	},
-	"files": ["biome.json"],
-	"keywords": ["biome", "linter", "formatter", "config"],
+	"files": [
+		"biome.json"
+	],
+	"keywords": [
+		"biome",
+		"linter",
+		"formatter",
+		"config"
+	],
 	"author": "SylphxAI",
 	"license": "MIT",
 	"repository": {
