@@ -1,28 +1,28 @@
 {
-	"name": "@sylphx/biome-config",
-	"version": "0.2.0",
-	"description": "Shared Biome configuration for SylphxAI projects",
-	"type": "module",
-	"exports": {
-		".": "./biome.json"
-	},
-	"files": [
-		"biome.json"
-	],
-	"keywords": [
-		"biome",
-		"linter",
-		"formatter",
-		"config"
-	],
-	"author": "SylphxAI",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/SylphxAI/configs.git",
-		"directory": "packages/biome-config"
-	},
-	"peerDependencies": {
-		"@biomejs/biome": "^2.0.0"
-	}
+  "name": "@sylphx/biome-config",
+  "version": "0.3.0",
+  "description": "Shared Biome configuration for SylphxAI projects",
+  "type": "module",
+  "exports": {
+    ".": "./biome.json"
+  },
+  "files": [
+    "biome.json"
+  ],
+  "keywords": [
+    "biome",
+    "linter",
+    "formatter",
+    "config"
+  ],
+  "author": "SylphxAI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SylphxAI/configs.git",
+    "directory": "packages/biome-config"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "^2.0.0"
+  }
 }
