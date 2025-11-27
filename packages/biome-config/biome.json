@@ -49,5 +49,34 @@
 	},
 	"files": {
 		"includes": ["**", "!**/dist", "!**/node_modules"]
-	}
+	},
+	"overrides": [
+		{
+			"includes": [
+				"**/*.test.ts",
+				"**/*.spec.ts",
+				"**/*.test.tsx",
+				"**/*.spec.tsx",
+				"**/test/**",
+				"**/tests/**",
+				"**/__tests__/**"
+			],
+			"linter": {
+				"rules": {
+					"complexity": {
+						"noExcessiveCognitiveComplexity": "off"
+					},
+					"suspicious": {
+						"noExplicitAny": "off"
+					},
+					"style": {
+						"noNonNullAssertion": "off"
+					}
+				}
+			},
+			"formatter": {
+				"lineWidth": 120
+			}
+		}
+	]
 }
