@@ -1,5 +1,11 @@
 # @sylphx/tsconfig
 
+## 0.3.1 (2025-12-01)
+
+### ✨ Features
+
+- modernize configs for ESM-only projects ([2a1d664](https://github.com/SylphxAI/configs/commit/2a1d6649584f1687a04b3ffbd49e4f99473bda5d))
+
 ## 0.3.0 (2025-11-27)
 
 ### ✨ Features
