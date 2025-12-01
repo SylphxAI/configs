@@ -1,9 +1,12 @@
+# Managed by @sylphx/doctor
+# https://github.com/evilmartians/lefthook
+
 pre-commit:
-  parallel: true
   commands:
-    lint:
-      glob: "*.{ts,tsx,js,jsx,json}"
-      run: bun run lint
-    format:
-      glob: "*.{ts,tsx,js,jsx,json}"
-      run: bun run format
+    doctor:
+      run: bunx @sylphx/doctor precommit --fix
+
+pre-push:
+  commands:
+    doctor:
+      run: bunx @sylphx/doctor prepush

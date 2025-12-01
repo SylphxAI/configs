@@ -38,3 +38,7 @@ bun add -D @sylphx/biome-config @biomejs/biome
 ## License
 
 MIT
+
+---
+
+✨ Powered by [Sylphx](https://github.com/SylphxAI) | Built with [@sylphx/doctor](https://github.com/SylphxAI/doctor)
