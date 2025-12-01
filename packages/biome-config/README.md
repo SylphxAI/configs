@@ -14,7 +14,7 @@ Create a `biome.json` in your project root:
 
 ```json
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
   "extends": ["@sylphx/biome-config"]
 }
 ```
@@ -25,9 +25,9 @@ The shared config includes:
 
 ### Formatter
 - Indent: tabs (width 2)
-- Line width: 100
+- Line width: 100 (120 for tests/examples)
 - Single quotes
-- Trailing commas (ES5)
+- Trailing commas (all)
 - No semicolons
 
 ### Linter
@@ -38,8 +38,14 @@ The shared config includes:
 - No non-null assertion (warn)
 - No explicit any (warn)
 
+### Overrides (relaxed rules)
+Tests, examples, and config files have relaxed linting:
+- `noExplicitAny`: off
+- `noNonNullAssertion`: off
+- `noExcessiveCognitiveComplexity`: off
+
 ### Files
-- Ignores: `dist`, `node_modules`, `*.json`
+- Ignores: `dist`, `node_modules`
 
 ## Overriding
 
@@ -47,7 +53,7 @@ You can override any setting in your project's `biome.json`:
 
 ```json
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
   "extends": ["@sylphx/biome-config"],
   "formatter": {
     "lineWidth": 120

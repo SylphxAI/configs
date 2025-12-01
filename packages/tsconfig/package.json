@@ -1,27 +1,27 @@
 {
-  "name": "@sylphx/tsconfig",
-  "version": "0.3.0",
-  "description": "Shared TypeScript configuration for SylphxAI projects",
-  "type": "module",
-  "exports": {
-    ".": "./tsconfig.json",
-    "./bun": "./bun.json",
-    "./node": "./node.json",
-    "./react": "./react.json"
-  },
-  "files": [
-    "*.json"
-  ],
-  "keywords": [
-    "tsconfig",
-    "typescript",
-    "config"
-  ],
-  "author": "SylphxAI",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SylphxAI/configs.git",
-    "directory": "packages/tsconfig"
-  }
+	"name": "@sylphx/tsconfig",
+	"version": "0.3.0",
+	"description": "Shared TypeScript configuration for SylphxAI projects",
+	"type": "module",
+	"exports": {
+		".": "./tsconfig.json",
+		"./bun": "./bun.json",
+		"./node": "./node.json",
+		"./react": "./react.json"
+	},
+	"files": [
+		"*.json"
+	],
+	"keywords": [
+		"tsconfig",
+		"typescript",
+		"config"
+	],
+	"author": "SylphxAI",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SylphxAI/configs.git",
+		"directory": "packages/tsconfig"
+	}
 }

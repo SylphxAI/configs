@@ -43,7 +43,7 @@
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "single",
-			"trailingCommas": "es5",
+			"trailingCommas": "all",
 			"semicolons": "asNeeded"
 		}
 	},
@@ -54,12 +54,20 @@
 		{
 			"includes": [
 				"**/*.test.ts",
-				"**/*.spec.ts",
 				"**/*.test.tsx",
+				"**/*.spec.ts",
 				"**/*.spec.tsx",
 				"**/test/**",
 				"**/tests/**",
-				"**/__tests__/**"
+				"**/__tests__/**",
+				"**/examples/**",
+				"**/example/**",
+				"**/*.example.ts",
+				"**/*.example.tsx",
+				"**/*.config.ts",
+				"**/*.config.js",
+				"**/*.config.mjs",
+				"**/*.config.mts"
 			],
 			"linter": {
 				"rules": {
