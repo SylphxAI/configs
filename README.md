@@ -41,4 +41,4 @@ MIT
 
 ---
 
-✨ Powered by [Sylphx](https://github.com/SylphxAI) | Built with [@sylphx/doctor](https://github.com/SylphxAI/doctor)
+✨ Powered by [Sylphx](https://github.com/SylphxAI)
