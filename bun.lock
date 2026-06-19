@@ -7,21 +7,20 @@
       "devDependencies": {
         "@biomejs/biome": "^2.3.8",
         "@sylphx/bump": "^1.4.13",
-        "@sylphx/doctor": "^1.27.0",
         "lefthook": "^2.0.4",
         "turbo": "^2.5.4",
       },
     },
     "packages/biome-config": {
       "name": "@sylphx/biome-config",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "peerDependencies": {
         "@biomejs/biome": "^2.0.0",
       },
     },
     "packages/tsconfig": {
       "name": "@sylphx/tsconfig",
-      "version": "0.3.0",
+      "version": "0.3.1",
     },
   },
   "packages": {
@@ -47,8 +46,6 @@
 
     "@sylphx/bump": ["@sylphx/bump@1.4.13", "", { "dependencies": { "citty": "^0.1.6", "consola": "^3.4.2", "defu": "^6.1.4", "picocolors": "^1.1.1", "semver": "^7.6.3", "zx": "^8.8.5" }, "bin": { "bump": "dist/cli.js" } }, "sha512-KQ26hH8vH6Obsd5iY+MyPyqyBR5rxa55ICKlMDA1ZQCt9xuQGKbf6B5B2VylmKbTuGTMaaSeOEM/8eCm5Lli2Q=="],
 
-    "@sylphx/doctor": ["@sylphx/doctor@1.27.0", "", { "dependencies": { "citty": "^0.1.6", "consola": "^3.4.2", "defu": "^6.1.4", "jiti": "^2.4.2", "picocolors": "^1.1.1" }, "bin": { "doctor": "dist/cli.js" } }, "sha512-Yyfbv6BVr0doRZe1Q4bKyET9U7+5sGXp9eux9T0CdAAHoQHlJEeK/xqYTRmQyFpaPBbdjDCF0AqnRuvf6taESg=="],
-
     "@sylphx/tsconfig": ["@sylphx/tsconfig@workspace:packages/tsconfig"],
 
     "citty": ["citty@0.1.6", "", { "dependencies": { "consola": "^3.2.3" } }, "sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ=="],
@@ -56,8 +53,6 @@
     "consola": ["consola@3.4.2", "", {}, "sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA=="],
 
     "defu": ["defu@6.1.4", "", {}, "sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg=="],
-
-    "jiti": ["jiti@2.6.1", "", { "bin": { "jiti": "lib/jiti-cli.mjs" } }, "sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ=="],
 
     "lefthook": ["lefthook@2.0.4", "", { "optionalDependencies": { "lefthook-darwin-arm64": "2.0.4", "lefthook-darwin-x64": "2.0.4", "lefthook-freebsd-arm64": "2.0.4", "lefthook-freebsd-x64": "2.0.4", "lefthook-linux-arm64": "2.0.4", "lefthook-linux-x64": "2.0.4", "lefthook-openbsd-arm64": "2.0.4", "lefthook-openbsd-x64": "2.0.4", "lefthook-windows-arm64": "2.0.4", "lefthook-windows-x64": "2.0.4" }, "bin": { "lefthook": "bin/index.js" } }, "sha512-GNCU2vQWM/UWjiEF23601aILi1aMbPke6viortH7wIO/oVGOCW0H6FdLez4XZDyqnHL9XkTnd0BBVrBbYVMLpA=="],
 
