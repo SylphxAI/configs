@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "repo": "SylphxAI/configs",
+    "name": "SylphxAI Configs",
+    "lifecycle": "production",
+    "layer": "tooling",
+    "summary": "Shared configuration package monorepo for Sylphx TypeScript and Biome defaults.",
+    "goals": [
+      "Provide the published @sylphx/tsconfig package for shared TypeScript configuration.",
+      "Provide the published @sylphx/biome-config package for shared Biome configuration.",
+      "Keep shared config packages small, versioned, and consumed through package exports rather than copied into downstream repositories."
+    ],
+    "nonGoals": [
+      "Own downstream application code style exceptions or product-specific compiler behavior.",
+      "Own every repo's CI workflow, branch protection, or release process.",
+      "Own enterprise engineering doctrine, standards, or project manifest schema."
+    ]
+  },
+  "boundaries": {
+    "owns": [
+      {
+        "name": "typescript-config-package",
+        "description": "The @sylphx/tsconfig package, exported config files, README, changelog, and package metadata under packages/tsconfig."
+      },
+      {
+        "name": "biome-config-package",
+        "description": "The @sylphx/biome-config package, shared Biome defaults, README, changelog, and package metadata under packages/biome-config."
+      }
+    ],
+    "doesNotOwn": [
+      "Downstream application code style exceptions, product-specific compiler behavior, or repo-local lint policy deviations.",
+      "Every consumer repository's CI workflow, branch protection, release process, or package manager policy.",
+      "Enterprise doctrine and manifest schema owned by SylphxAI/doctrine."
+    ],
+    "publicSurfaces": [
+      {
+        "type": "documentation",
+        "name": "Repository README",
+        "location": "README.md"
+      },
+      {
+        "type": "manifest",
+        "name": "Root package manifest and scripts",
+        "location": "package.json"
+      },
+      {
+        "type": "package",
+        "name": "@sylphx/tsconfig",
+        "location": "packages/tsconfig/"
+      },
+      {
+        "type": "package",
+        "name": "@sylphx/biome-config",
+        "location": "packages/biome-config/"
+      },
+      {
+        "type": "workflow",
+        "name": "ADR-29 CI and release workflows",
+        "location": ".github/workflows/"
+      }
+    ],
+    "allowedDependencies": [
+      {
+        "repo": "SylphxAI/doctrine",
+        "surface": "project manifest schema and engineering doctrine",
+        "direction": "peer-public"
+      },
+      {
+        "repo": "SylphxAI/.github",
+        "surface": "ADR-29 admission action and reusable release workflow",
+        "direction": "upstream-shared"
+      }
+    ],
+    "forbiddenCouplings": [
+      "Do not add product-specific compiler or formatter exceptions to shared config packages.",
+      "Do not make downstream repositories depend on unpublished internal config paths.",
+      "Do not fork doctrine standards into this repository."
+    ]
+  },
+  "documentation": {
+    "adr": {
+      "path": "docs/adr/",
+      "status": "planned"
+    },
+    "specs": {
+      "path": "README.md",
+      "status": "present"
+    },
+    "catalog": {
+      "path": ".doctrine/project.json",
+      "status": "present"
+    },
+    "runbooks": {
+      "path": "docs/runbooks/",
+      "status": "planned"
+    },
+    "generatedReferences": {
+      "path": "packages/*/README.md",
+      "status": "present"
+    }
+  },
+  "delivery": {
+    "ciModel": "adr29-admission",
+    "requiredContexts": [],
+    "deployPath": "ADR-29 CI runs risk-classification/pass, trunk-admission/pass, postsubmit-proof/pass, and recovery-decision/pass around repo lint; main-branch Release delegates to SylphxAI/.github reusable release workflow for package publication.",
+    "productionProof": "Passing lint/config validation, trunk admission fan-in, postsubmit proof on main, successful release workflow, and package-registry readback for published config versions.",
+    "recoveryClass": "forward-fix-only"
+  },
+  "adoption": {
+    "status": "baseline",
+    "gaps": [
+      {
+        "id": "required-contexts-not-recorded",
+        "description": "ADR-29 workflow jobs exist, but branch-protection required contexts are not recorded in this manifest baseline.",
+        "owner": "SylphxAI/configs",
+        "target": "repo-local branch protection audit"
+      },
+      {
+        "id": "consumer-compatibility-proof",
+        "description": "Shared config changes should be validated against representative consumer repositories before production lifecycle remains credible at scale.",
+        "owner": "SylphxAI/configs",
+        "target": "next shared config change"
+      },
+      {
+        "id": "release-runbook-missing",
+        "description": "Published config package versions are forward-only for consumers; add bad-release recovery guidance before full adoption.",
+        "owner": "SylphxAI/configs",
+        "target": "before adoption.status becomes full"
+      }
+    ]
+  }
+}
