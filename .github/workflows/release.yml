@@ -10,5 +10,9 @@ concurrency:
 
 jobs:
   release:
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
     uses: SylphxAI/.github/.github/workflows/release.yml@main
     secrets: inherit
