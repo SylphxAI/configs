@@ -6,7 +6,8 @@ SylphxAI/configs is the shared configuration package monorepo for Sylphx TypeScr
 
 - State: `production`
 - Layer: `tooling`
-- Machine manifest: [`.doctrine/project.json`](./.doctrine/project.json)
+- Vendor-neutral manifest: [`project.manifest.json`](./project.manifest.json)
+- Doctrine adapter manifest: [`.doctrine/project.json`](./.doctrine/project.json)
 
 ## Goals
 

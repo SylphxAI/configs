@@ -45,12 +45,12 @@
 				"location": "package.json"
 			},
 			{
-				"type": "package",
+				"type": "package-export",
 				"name": "@sylphx/tsconfig",
 				"location": "packages/tsconfig/"
 			},
 			{
-				"type": "package",
+				"type": "package-export",
 				"name": "@sylphx/biome-config",
 				"location": "packages/biome-config/"
 			},
@@ -58,6 +58,16 @@
 				"type": "workflow",
 				"name": "ADR-29 CI and release workflows",
 				"location": ".github/workflows/"
+			},
+			{
+				"type": "manifest",
+				"name": "Vendor-neutral project manifest",
+				"location": "project.manifest.json"
+			},
+			{
+				"type": "documentation",
+				"name": "Security policy",
+				"location": "SECURITY.md"
 			}
 		],
 		"allowedDependencies": [
@@ -69,7 +79,7 @@
 			{
 				"repo": "SylphxAI/.github",
 				"surface": "ADR-29 admission action and reusable release workflow",
-				"direction": "upstream-shared"
+				"direction": "downward"
 			}
 		],
 		"forbiddenCouplings": [
@@ -81,10 +91,10 @@
 	"documentation": {
 		"adr": {
 			"path": "docs/adr/",
-			"status": "planned"
+			"status": "present"
 		},
 		"specs": {
-			"path": "README.md",
+			"path": "docs/specs/ and README.md",
 			"status": "present"
 		},
 		"catalog": {
@@ -92,8 +102,8 @@
 			"status": "present"
 		},
 		"runbooks": {
-			"path": "docs/runbooks/",
-			"status": "planned"
+			"path": "SECURITY.md and progress.md",
+			"status": "present"
 		},
 		"generatedReferences": {
 			"path": "packages/*/README.md",
@@ -104,7 +114,7 @@
 		"ciModel": "adr29-admission",
 		"requiredContexts": [],
 		"deployPath": "ADR-29 CI runs risk-classification/pass, trunk-admission/pass, postsubmit-proof/pass, and recovery-decision/pass around repo lint; main-branch Release delegates to SylphxAI/.github reusable release workflow for package publication.",
-		"productionProof": "Passing lint/config validation, trunk admission fan-in, postsubmit proof on main, successful release workflow, and package-registry readback for published config versions.",
+		"productionProof": "Passing lint/config validation, package contract tests, GroundAtlas package dogfood, trunk admission fan-in, postsubmit proof on main, successful release workflow, and package-registry readback for published config versions.",
 		"recoveryClass": "forward-fix-only"
 	},
 	"adoption": {
