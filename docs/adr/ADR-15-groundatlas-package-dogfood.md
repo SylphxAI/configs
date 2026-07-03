@@ -1,8 +1,8 @@
-# ADR-DRAFT: Dogfood GroundAtlas package gate
+# ADR-15: Dogfood GroundAtlas package gate
 
 ## Status
 
-Draft. Rename to the GitHub PR number before merge.
+Accepted in SylphxAI/configs#15.
 
 ## Context
 
