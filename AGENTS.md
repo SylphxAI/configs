@@ -1,11 +1,25 @@
-# Agent Instructions
+# configs — local agent notes only
 
-This repository consumes the Sylphx engineering doctrine from [SylphxAI/doctrine](https://github.com/SylphxAI/doctrine).
+Doctrine and fleet delivery law live in the **host always-on constitution**
+(`~/.grok/AGENTS.md` / Doctrine template). This file must **not** restate,
+weaken, or fork that law (including PR-vs-direct-trunk delivery).
 
-Before changing files here:
+Local truth: `PROJECT.md`, `.doctrine/project.json` when present.
 
-- Read [PROJECT.md](./PROJECT.md) and [`.doctrine/project.json`](./.doctrine/project.json) for this repository's goal, lifecycle, boundary, public surfaces, and adoption gaps.
-- Read `SylphxAI/doctrine` `AGENTS.md`, `PRINCIPLES.md`, and `ADR.md`, then load any triggered standards.
-- Keep shared configs generic; product-specific compiler or formatter exceptions belong in the consuming repository.
+## Boundary hazards
 
-Do not add downstream product policy here. This repository owns shared TypeScript and Biome configuration packages only.
+- Never commit secrets, tokens, `.env` files, or credentials.
+
+## Local commands
+
+- `bun run test`
+- `bun run lint`
+- `bun run build`
+- `python -m pytest` (narrowest target first)
+- Prefer the **narrowest** affected check before full workspace runs.
+- Report layers honestly: local diff · trunk FF · deploy · prod proof (do not collapse).
+
+## Validation notes
+
+- Prefer the **narrowest** affected check before full workspace runs.
+- Report layers honestly: local diff · trunk FF · deploy · prod proof (do not collapse).
