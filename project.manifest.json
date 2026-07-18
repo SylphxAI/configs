@@ -9,16 +9,39 @@
 		"visibility": "open-source",
 		"repository": "https://github.com/SylphxAI/configs",
 		"homepage": "https://github.com/SylphxAI/configs",
-		"tags": ["configs", "typescript", "biome", "tooling", "package"]
+		"tags": [
+			"configs",
+			"typescript",
+			"biome",
+			"tooling",
+			"package"
+		]
 	},
 	"truth": {
 		"humanProjectFile": "PROJECT.md",
 		"agentAdapter": "AGENTS.md",
-		"specs": ["docs/specs/", "README.md"],
-		"adrs": ["docs/adr/"],
-		"source": ["packages/", "package.json", "turbo.json", "biome.json"],
-		"tests": ["tests/"],
-		"runbooks": ["README.md", "PROJECT.md", "SECURITY.md", "progress.md"]
+		"specs": [
+			"docs/specs/",
+			"README.md"
+		],
+		"adrs": [
+			"docs/adr/"
+		],
+		"source": [
+			"packages/",
+			"package.json",
+			"turbo.json",
+			"biome.json"
+		],
+		"tests": [
+			"tests/"
+		],
+		"runbooks": [
+			"README.md",
+			"PROJECT.md",
+			"SECURITY.md",
+			"progress.md"
+		]
 	},
 	"surfaces": [
 		{
@@ -49,7 +72,7 @@
 			"type": "workflow",
 			"name": "CI",
 			"path": ".github/workflows/ci.yml",
-			"description": "ADR-29 admission, GroundAtlas package dogfood, lint, tests, and postsubmit proof."
+			"description": "ADR-29 admission,, lint, tests, and postsubmit proof."
 		},
 		{
 			"type": "workflow",
@@ -74,15 +97,10 @@
 			"name": "test",
 			"command": "bun run test",
 			"purpose": "Run lightweight shared package contract tests."
-		},
-		{
-			"name": "groundatlas:fleet",
-			"command": "npm exec --yes --package groundatlas@0.1.2 -- ga fleet . --out .groundatlas-pilot --require-atlas --strict --json",
-			"purpose": "Prove the vendor-neutral manifest is selected and generated GroundAtlas files are navigation-only."
 		}
 	],
 	"adoption": {
 		"status": "adopted",
-		"notes": "Vendor-neutral GroundAtlas manifest for package/action dogfooding. .doctrine/project.json remains the Sylphx Doctrine adapter and local governance catalog; package-release proof gaps remain tracked separately in the Doctrine adapter."
+		"notes": "Vendor-neutral project.manifest retained as optional metadata. GroundAtlas package dogfood retired (Control Plane ADR-0014). .doctrine/project.json remains the Sylphx Doctrine adapter and local governance catalog."
 	}
 }

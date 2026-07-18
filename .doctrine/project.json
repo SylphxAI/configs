@@ -114,7 +114,7 @@
 		"ciModel": "adr29-admission",
 		"requiredContexts": [],
 		"deployPath": "ADR-29 CI runs risk-classification/pass, trunk-admission/pass, postsubmit-proof/pass, and recovery-decision/pass around repo lint; main-branch Release delegates to SylphxAI/.github reusable release workflow for package publication.",
-		"productionProof": "Passing lint/config validation, package contract tests, GroundAtlas package dogfood, trunk admission fan-in, postsubmit proof on main, successful release workflow, and package-registry readback for published config versions.",
+		"productionProof": "Passing lint/config validation, package contract tests, trunk admission fan-in, postsubmit proof on main, successful release workflow, and package-registry readback for published config versions.",
 		"recoveryClass": "forward-fix-only"
 	},
 	"adoption": {
