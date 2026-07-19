@@ -15,7 +15,7 @@ Do not open public issues containing secrets, exploit details, customer data, or
 - Do not commit secrets, credentials, private package tokens, customer data, or private runtime configuration.
 - Do not add downstream product-specific compiler or formatter exceptions to shared config packages.
 - Keep consumers on published package exports and documented config entrypoints instead of unpublished internal paths.
-- Keep project-control facts in `PROJECT.md`, `project.manifest.json`, `.doctrine/project.json`, specs, ADRs, package metadata, tests, and CI instead of chat or generated navigation files.
+- Keep repository facts in `PROJECT.md`, package metadata, tests, and CI.
 
 ## Validation
 
@@ -24,5 +24,4 @@ Security-relevant changes should pass:
 ```bash
 bun run lint
 bun run test
-npm exec --yes --package groundatlas@0.1.2 -- ga fleet . --out .groundatlas-pilot --require-atlas --strict --json
 ```

@@ -1,5 +1,4 @@
 {
-	"$schema": "https://raw.githubusercontent.com/SylphxAI/groundatlas/main/schemas/project.manifest.schema.json",
 	"schemaVersion": 1,
 	"project": {
 		"id": "configs",
@@ -9,39 +8,16 @@
 		"visibility": "open-source",
 		"repository": "https://github.com/SylphxAI/configs",
 		"homepage": "https://github.com/SylphxAI/configs",
-		"tags": [
-			"configs",
-			"typescript",
-			"biome",
-			"tooling",
-			"package"
-		]
+		"tags": ["configs", "typescript", "biome", "tooling", "package"]
 	},
 	"truth": {
 		"humanProjectFile": "PROJECT.md",
 		"agentAdapter": "AGENTS.md",
-		"specs": [
-			"docs/specs/",
-			"README.md"
-		],
-		"adrs": [
-			"docs/adr/"
-		],
-		"source": [
-			"packages/",
-			"package.json",
-			"turbo.json",
-			"biome.json"
-		],
-		"tests": [
-			"tests/"
-		],
-		"runbooks": [
-			"README.md",
-			"PROJECT.md",
-			"SECURITY.md",
-			"progress.md"
-		]
+		"specs": ["docs/specs/", "README.md"],
+		"adrs": ["docs/adr/"],
+		"source": ["packages/", "package.json", "turbo.json", "biome.json"],
+		"tests": ["tests/"],
+		"runbooks": ["README.md", "PROJECT.md", "SECURITY.md", "progress.md"]
 	},
 	"surfaces": [
 		{
@@ -72,7 +48,7 @@
 			"type": "workflow",
 			"name": "CI",
 			"path": ".github/workflows/ci.yml",
-			"description": "ADR-29 admission,, lint, tests, and postsubmit proof."
+			"description": "Package lint and contract tests."
 		},
 		{
 			"type": "workflow",
@@ -84,7 +60,7 @@
 			"type": "docs",
 			"name": "Doctrine adapter manifest",
 			"path": ".doctrine/project.json",
-			"description": "Sylphx Doctrine adapter and org-local governance catalog; not the vendor-neutral GroundAtlas default."
+			"description": "Repository-local lifecycle and delivery metadata."
 		}
 	],
 	"commands": [
@@ -98,9 +74,5 @@
 			"command": "bun run test",
 			"purpose": "Run lightweight shared package contract tests."
 		}
-	],
-	"adoption": {
-		"status": "adopted",
-		"notes": "Vendor-neutral project.manifest retained as optional metadata. GroundAtlas package dogfood retired (Control Plane ADR-0014). .doctrine/project.json remains the Sylphx Doctrine adapter and local governance catalog."
-	}
+	]
 }

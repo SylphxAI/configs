@@ -31,8 +31,8 @@ This repository owns shared configuration packages and their release surface. Do
 - Root package manifest and scripts: [`package.json`](./package.json)
 - TypeScript config package: [`packages/tsconfig/`](./packages/tsconfig/)
 - Biome config package: [`packages/biome-config/`](./packages/biome-config/)
-- ADR-29 CI and release workflows: [`.github/workflows/`](./.github/workflows/)
+- CI and release workflows: [`.github/workflows/`](./.github/workflows/)
 
 ## Delivery
 
-The repository has ADR-29-style risk classification, trunk admission, postsubmit proof, and recovery-decision workflow jobs, plus a reusable main-branch release workflow. Production proof is passing lint/config validation, trunk admission fan-in, postsubmit proof on main, release workflow evidence, and package-registry readback for published config versions. This manifest slice is documentation-only and does not change package code, config defaults, CI, release, or deployment behavior.
+CI runs the package lint and contract tests. Releases use the shared main-branch release workflow; completion requires package-registry readback for published config versions.
