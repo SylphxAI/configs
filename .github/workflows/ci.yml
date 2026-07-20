@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   ci:
-    runs-on: [self-hosted, sylphx, linux, standard]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
