@@ -1,6 +1,6 @@
 # @sylphx/configs
 
-Shared configurations for SylphxAI projects.
+Shared TypeScript and [Biome](https://biomejs.dev) settings used across SylphxAI projects, published to npm so any project can extend them.
 
 ## Packages
 
@@ -9,7 +9,7 @@ Shared configurations for SylphxAI projects.
 | [@sylphx/tsconfig](./packages/tsconfig) | TypeScript configuration | [![npm](https://img.shields.io/npm/v/@sylphx/tsconfig)](https://www.npmjs.com/package/@sylphx/tsconfig) |
 | [@sylphx/biome-config](./packages/biome-config) | Biome linter/formatter configuration | [![npm](https://img.shields.io/npm/v/@sylphx/biome-config)](https://www.npmjs.com/package/@sylphx/biome-config) |
 
-## Quick Start
+## Use them
 
 ### TypeScript
 
@@ -17,17 +17,23 @@ Shared configurations for SylphxAI projects.
 bun add -D @sylphx/tsconfig
 ```
 
+In `tsconfig.json`:
+
 ```json
 {
   "extends": "@sylphx/tsconfig/bun"
 }
 ```
 
+Presets: `@sylphx/tsconfig` (base), `@sylphx/tsconfig/bun`, `@sylphx/tsconfig/node`, `@sylphx/tsconfig/react`.
+
 ### Biome
 
 ```bash
 bun add -D @sylphx/biome-config @biomejs/biome
 ```
+
+In `biome.json`:
 
 ```json
 {
@@ -39,6 +45,3 @@ bun add -D @sylphx/biome-config @biomejs/biome
 
 MIT
 
----
-
-✨ Powered by [Sylphx](https://github.com/SylphxAI)
