@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   merge_group:
   push:
     branches: [main]
@@ -16,8 +17,19 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  ci:
-    runs-on: sylphx-linux-standard
+  fast-gate:
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check chat sender contracts
+        uses: SylphxAI/.github/.github/actions/chat-senders@5cfd55a41435cca8e4b7caf6506faf04ca08d200
+        with:
+          mode: fail
+
+  package-contracts:
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -33,3 +45,16 @@ jobs:
 
       - name: Test package contracts
         run: bun run test
+
+  ci:
+    if: always()
+    needs: [fast-gate, package-contracts]
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
+    steps:
+      - name: Require all gates
+        env:
+          FAST_GATE_RESULT: ${{ needs.fast-gate.result }}
+          CI_RESULT: ${{ needs.package-contracts.result }}
+        run: |
+          test "$FAST_GATE_RESULT" = success
+          test "$CI_RESULT" = success
