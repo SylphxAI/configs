@@ -33,7 +33,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Check chat sender contracts
-        uses: SylphxAI/.github/.github/actions/chat-senders@5cfd55a41435cca8e4b7caf6506faf04ca08d200
+        uses: SylphxAI/.github/.github/actions/chat-senders@96195d86b550ab1205159acb1ae0d75b1fbed47f # main
         with:
           mode: fail
 
@@ -43,7 +43,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: SylphxAI/.github/.github/actions/workflow-lint@84e2357f8fff27a41715fe6546496545d9703604 # main 84e2357
+      - uses: SylphxAI/.github/.github/actions/workflow-lint@96195d86b550ab1205159acb1ae0d75b1fbed47f # main
 
   package-contracts:
     if: always() && !cancelled()
