@@ -80,3 +80,15 @@ jobs:
         with:
           needs: ${{ toJSON(needs) }}
           required: fast-gate, workflow-lint, package-contracts
+
+  # The repository also requires `ci`; both check names cover every gate lane.
+  ci:
+    if: always() && !cancelled()
+    needs: [ci-ok]
+    runs-on: sylphx-linux-control
+    timeout-minutes: 5
+    steps:
+      - uses: SylphxAI/.github/.github/actions/needs-pass@46ec433892bca8693193049b5ee7441bb916a7ad # main
+        with:
+          needs: ${{ toJSON(needs) }}
+          required: ci-ok
