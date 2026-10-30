@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   merge_group:
   push:
     branches: [main]
@@ -16,8 +17,38 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  ci:
-    runs-on: sylphx-linux-standard
+  # The shared gate lanes: the pinned chat-sender contract check, the workflow
+  # parse and pin guard, and the package contract tests. Each lane selects the
+  # merge lane on a merge group so a merge group never queues behind the
+  # pull-request backlog, and carries `if: always() && !cancelled()` so the
+  # verdict below always reads a real result for every lane
+  # (docs/optimistic-merge.md, Runners).
+
+  fast-gate:
+    if: always() && !cancelled()
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check chat sender contracts
+        uses: SylphxAI/.github/.github/actions/chat-senders@5cfd55a41435cca8e4b7caf6506faf04ca08d200
+        with:
+          mode: fail
+
+  workflow-lint:
+    if: always() && !cancelled()
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: SylphxAI/.github/.github/actions/workflow-lint@84e2357f8fff27a41715fe6546496545d9703604 # main 84e2357
+
+  package-contracts:
+    if: always() && !cancelled()
+    runs-on: ${{ github.event_name == 'merge_group' && 'sylphx-linux-standard-merge' || 'sylphx-linux-standard' }}
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -36,8 +67,8 @@ jobs:
 
   # The one required check. Skipped lanes pass; a failed or cancelled lane fails.
   ci-ok:
-    if: always()
-    needs: [ci]
+    if: always() && !cancelled()
+    needs: [fast-gate, workflow-lint, package-contracts]
     # The reserved gate pool (Kueue queue scale-set-gate, never lends): an
     # `if: always()` verdict still runs after its run is cancelled, and that run
     # keeps its concurrency group until it does, so on a busy build pool a
@@ -48,4 +79,16 @@ jobs:
       - uses: SylphxAI/.github/.github/actions/needs-pass@46ec433892bca8693193049b5ee7441bb916a7ad # main
         with:
           needs: ${{ toJSON(needs) }}
-          required: ci
+          required: fast-gate, workflow-lint, package-contracts
+
+  # The repository also requires `ci`; both check names cover every gate lane.
+  ci:
+    if: always() && !cancelled()
+    needs: [ci-ok]
+    runs-on: sylphx-linux-control
+    timeout-minutes: 5
+    steps:
+      - uses: SylphxAI/.github/.github/actions/needs-pass@46ec433892bca8693193049b5ee7441bb916a7ad # main
+        with:
+          needs: ${{ toJSON(needs) }}
+          required: ci-ok
